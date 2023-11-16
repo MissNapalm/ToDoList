@@ -67,15 +67,17 @@ function onDelete(td) {
     }
 }
 
-function validate(){
+function validate() {
     isValid = true;
-    if (document.getElementById("fullName").value == ""){
+    var fullNameInput = document.getElementById("fullName");
+    var fullNameValue = fullNameInput.value.trim();
+
+    if (fullNameValue === "") {
         isValid = false;
         document.getElementById("fullNameValidationError").classList.remove("hide");
     } else {
-        isValid = true;
         if (!document.getElementById("fullNameValidationError").classList.contains("hide"))
-        document.getElementById("fullNameValidationError").classList.add("hide");
+            document.getElementById("fullNameValidationError").classList.add("hide");
     }
     return isValid;
 }
